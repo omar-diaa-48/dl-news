@@ -2,6 +2,7 @@
 import { IStableCoin } from '@/utilities/interfaces'
 import React from 'react'
 import InfiniteMovingCards from './InfiniteMovingCards'
+import Table from './Table'
 
 interface Props {
     data: Array<IStableCoin>
@@ -53,58 +54,30 @@ const StableCoinsList: React.FC<Props> = ({ data }) => {
                     </div>
                 </div>
 
-                <div className="flex flex-col mt-6">
-                    <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
-                            <div className="overflow-hidden border border-gray-200 dark:border-gray-700 md:rounded-lg">
-                                <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
-                                    <thead className="bg-gray-50 dark:bg-gray-800">
-                                        <tr>
-                                            {[
-                                                'Name',
-                                                'Symbol',
-                                                'Peg Type',
-                                                'Peg Mechanism',
-                                                'Appears in ',
-                                                'Price',
-                                            ]
-                                                .map((col) => (
-                                                    <th key={col} scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                        {col}
-                                                    </th>
-                                                ))
-                                            }
-                                        </tr>
-                                    </thead>
-                                    <tbody className="bg-white divide-y divide-gray-200 dark:divide-gray-700 dark:bg-gray-900">
-                                        {data.map((row) => (
-                                            <tr key={row.id}>
-                                                <td className="px-4 py-4 text-sm font-medium whitespace-nowrap text-white">
-                                                    {row.name}
-                                                </td>
-                                                <td className="px-4 py-4 text-sm font-medium whitespace-nowrap text-white">
-                                                    {row.symbol}
-                                                </td>
-                                                <td className="px-4 py-4 text-sm font-medium whitespace-nowrap text-white">
-                                                    {row.pegType}
-                                                </td>
-                                                <td className="px-4 py-4 text-sm font-medium whitespace-nowrap text-white">
-                                                    {row.pegMechanism}
-                                                </td>
-                                                <td className="px-4 py-4 text-sm font-medium whitespace-nowrap text-white">
-                                                    {row.chains.length} chains
-                                                </td>
-                                                <td className="px-4 py-4 text-sm font-medium whitespace-nowrap text-white">
-                                                    {row.price}
-                                                </td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Table columns={[
+                    { key: 'name', title: 'Name' },
+                    { key: 'symbol', title: 'Symbol' },
+                    { key: 'pegType', title: 'Peg Type' },
+                    { key: 'pegMechanism', title: 'Peg Mechanism' },
+                    {
+                        key: 'chains',
+                        title: 'Appears In ',
+                        render: (col, row) => {
+                            return (
+                                <span>{row.chains.length} chains</span>
+                            )
+                        }
+                    },
+                    {
+                        key: 'price',
+                        title: 'Price',
+                        render: (col, row) => {
+                            return (
+                                <span>{row.price} {row.pegType.replace('pegged', '')}</span>
+                            )
+                        }
+                    },
+                ]} data={data} />
 
                 <div className="mt-6 sm:flex sm:items-center sm:justify-between ">
                     <div className="text-sm text-gray-500 dark:text-gray-400">
