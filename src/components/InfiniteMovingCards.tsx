@@ -59,12 +59,12 @@ const InfiniteMovingCards: React.FC<Props> = (props) => {
     return (
         <div
             ref={containerRef}
-            className="scroll w-full bg-[#E7E7E7]"
+            className="overflow-x-hidden w-full bg-[#E7E7E7]"
         >
             <ul
                 ref={scrollRef}
                 className={cn(
-                    "flex min-w-full gap-12 py-4 w-max",
+                    "flex min-w-full gap-12 py-4 w-max ",
                     start && "animate-scroll ",
                     pauseOnHover && "hover:[animation-play-state:paused]"
                 )}
