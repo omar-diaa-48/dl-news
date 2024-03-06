@@ -1,4 +1,4 @@
-import { cn } from '@/utilities/helpers/cs';
+import { cn } from '@/utilities/helpers/cn';
 import { IStableCoin } from '@/utilities/interfaces';
 import React, { ReactNode, useEffect, useState } from 'react'
 
@@ -9,12 +9,9 @@ interface Props {
     renderItem: (item: any) => ReactNode
 }
 
-const InfiniteMovingCards: React.FC<Props> = ({
-    items,
-    direction = "left",
-    pauseOnHover = true,
-    renderItem
-}) => {
+const InfiniteMovingCards: React.FC<Props> = (props) => {
+    const { items, direction = "left", pauseOnHover = true, renderItem } = props
+
     const containerRef = React.useRef<HTMLDivElement>(null);
     const scrollRef = React.useRef<HTMLUListElement>(null);
 
