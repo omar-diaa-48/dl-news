@@ -18,7 +18,7 @@ const StableCoinsList: React.FC<Props> = ({ data }) => {
                     return (
                         <p
                             className="text-black"
-                            key={item.symbol}
+                            key={item.id}
                         >
                             <span>
                                 {item.symbol}   {item.price > 0 && <b>{item.price} {item.pegType.replace('pegged', '')}</b>}
