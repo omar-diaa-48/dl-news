@@ -1,4 +1,4 @@
-export interface IStableCoins {
+export interface IStableCoin {
     id: string;
     name: string;
     symbol: string;
@@ -34,8 +34,9 @@ export interface IStableCoins {
             };
         };
     };
+    price: number;
 }
 
 export interface IListStableCoinsResponse {
-    peggedAssets: IStableCoins[];
+    peggedAssets: IStableCoin[];
 }
