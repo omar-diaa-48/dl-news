@@ -34,6 +34,7 @@ export interface IStableCoin {
             };
         };
     };
+    chains: string[];
     price: number;
 }
 
