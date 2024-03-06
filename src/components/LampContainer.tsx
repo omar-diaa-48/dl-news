@@ -31,7 +31,7 @@ const LampContainer: React.FC<Props> = (props) => {
             </div>
             {
                 actions.length > 0 && (
-                    <motion.div className="relative z-50 flex -translate-y-60 text-white">
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ delay: 1 }} className="relative z-50 flex -translate-y-60 text-white">
                         {actions.map((action) => (
                             <Link key={action.title} href={action.link}>{action.title}</Link>
                         ))}
