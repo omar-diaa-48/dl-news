@@ -8,14 +8,14 @@ export const metadata: Metadata = {
   description: "DL News - List View to show stable coins",
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <section>
+      {children}
+    </section>
   );
 }

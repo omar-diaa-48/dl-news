@@ -1,22 +1,33 @@
 "use client"
-import { IStableCoins } from '@/utilities/interfaces'
+import { IStableCoin } from '@/utilities/interfaces'
 import React from 'react'
+import InfiniteMovingCards from './InfiniteMovingCards'
 
 interface Props {
-    data: Array<IStableCoins>
+    data: Array<IStableCoin>
 }
 
 const StableCoinsList: React.FC<Props> = ({ data }) => {
     return (
-        <div>
+        <React.Fragment>
             <h1>Stable Coins List</h1>
 
-            {data.map((row) => (
-                <div key={row.id}>
-                    <p>{row.name}</p>
-                </div>
-            ))}
-        </div>
+            <InfiniteMovingCards
+                items={data}
+                renderItem={(item: IStableCoin) => {
+                    return (
+                        <p
+                            className="text-black"
+                            key={item.symbol}
+                        >
+                            <span>
+                                {item.symbol}   {item.price > 0 && <b>{item.price} {item.pegType.replace('pegged', '')}</b>}
+                            </span>
+                        </p>
+                    )
+                }}
+            />
+        </React.Fragment>
     )
 }
 
