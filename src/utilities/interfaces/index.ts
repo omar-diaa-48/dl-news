@@ -41,3 +41,13 @@ export interface IStableCoin {
 export interface IListStableCoinsResponse {
     peggedAssets: IStableCoin[];
 }
+
+export interface ISortCriteria<T> {
+    key: keyof T;
+    direction: 'asc' | 'desc';
+}
+
+export interface IPaginationCriteria {
+    currentPage: number;
+    rowsPerPage: number;
+}

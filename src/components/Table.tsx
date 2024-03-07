@@ -1,17 +1,29 @@
 import React from 'react'
+import ArrowUpShortWide from './icons/ArrowUpShortWide';
+import ArrowUpWideShort from './icons/ArrowUpWideShort';
+import { ISortCriteria } from '@/utilities/interfaces';
 
 interface ColumnProps<T> {
-    key: string;
+    key: keyof T;
     title: string | React.ReactElement;
     render?: (column: ColumnProps<T>, item: T) => React.ReactElement;
 }
 
 type Props<T> = {
     columns: Array<ColumnProps<T>>;
-    data?: T[];
+    data: T[];
+
+    sort: ISortCriteria<T>;
+    handleSort?: (key: keyof T) => void;
 };
 
-const Table = <T,>({ data = [], columns }: Props<T>) => {
+const Table = <T,>({ data, columns, sort, handleSort }: Props<T>) => {
+    const handleSortChanged = (key: keyof T) => {
+        if (handleSort) {
+            handleSort(key)
+        }
+    }
+
     return (
         <div className="flex flex-col mt-6">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -22,8 +34,19 @@ const Table = <T,>({ data = [], columns }: Props<T>) => {
                                 <tr>
                                     {columns
                                         .map((col) => (
-                                            <th key={col.key} scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                                                {col.title}
+                                            <th key={col.key as string} title={`Sort by ${col.title}`} onClick={() => handleSortChanged(col.key)} scope="col" className="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                                                <span className='flex items-center gap-4 hover:cursor-pointer'>
+                                                    {col.title}
+                                                    {
+                                                        col.key === sort.key && (
+                                                            sort.direction === 'asc' ? (
+                                                                <ArrowUpWideShort />
+                                                            ) : (
+                                                                <ArrowUpShortWide />
+                                                            )
+                                                        )
+                                                    }
+                                                </span>
                                             </th>
                                         ))
                                     }
@@ -59,7 +82,7 @@ const Table = <T,>({ data = [], columns }: Props<T>) => {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
