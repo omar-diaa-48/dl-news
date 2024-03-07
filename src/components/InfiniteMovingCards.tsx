@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from '@/utilities/helpers/cn';
 import { IStableCoin } from '@/utilities/interfaces';
 import React, { ReactNode, useEffect, useState } from 'react'

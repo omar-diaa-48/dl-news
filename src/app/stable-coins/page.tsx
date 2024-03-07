@@ -1,7 +1,9 @@
 "use server"
 
+import InfiniteMovingCards from "@/components/InfiniteMovingCards";
 import StableCoinsList from "@/components/StableCoinsList";
-import { IListStableCoinsResponse } from "@/utilities/interfaces";
+import StableCoinsTable from "@/components/StableCoinsTable";
+import { IListStableCoinsResponse, IStableCoin } from "@/utilities/interfaces";
 
 async function getData(): Promise<IListStableCoinsResponse> {
   const res = await fetch('https://stablecoins.llama.fi/stablecoins?includePrices=true')
