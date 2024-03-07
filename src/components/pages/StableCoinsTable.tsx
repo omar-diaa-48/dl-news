@@ -50,7 +50,7 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
     const sortData = (list: Array<IStableCoin>) => {
         if (sortCriteria.key === 'chains') {
             return list.sort((a, b) => {
-                const factor = sortCriteria.direction === 'asc' ? 1 : -1;
+                const factor = sortCriteria.direction === 'asc' ? -1 : 1;
                 if (a.chains.length < b.chains.length) return -1 * factor;
                 if (a.chains.length > b.chains.length) return 1 * factor;
                 return 0;
