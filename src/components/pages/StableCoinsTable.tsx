@@ -57,6 +57,15 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
             })
         }
 
+        if (sortCriteria.key === 'circulating') {
+            return list.sort((a, b) => {
+                const factor = sortCriteria.direction === 'asc' ? -1 : 1;
+                if (a.circulating.peggedUSD < b.circulatingPrevDay.peggedUSD) return -1 * factor;
+                if (a.circulating.peggedUSD > b.circulatingPrevDay.peggedUSD) return 1 * factor;
+                return 0;
+            })
+        }
+
         return list.sort((a, b) => {
             const factor = sortCriteria.direction === 'asc' ? 1 : -1;
             if (a[sortCriteria.key] < b[sortCriteria.key]) return -1 * factor;
@@ -146,6 +155,18 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
                     render: (_, row) => {
                         return (
                             <span>{row.price} {row.pegType.replace('pegged', '')}</span>
+                        )
+                    }
+                },
+                {
+                    key: 'circulating',
+                    title: 'Circulating',
+                    render: (_, row) => {
+                        return (
+                            <p className='flex flex-col'>
+                                <span>Currently {row.circulating.peggedUSD}</span>
+                                <span>Yesterday {row.circulatingPrevDay.peggedUSD}</span>
+                            </p>
                         )
                     }
                 }
