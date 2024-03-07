@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <nav className="flex justify-center items-center w-full sticky h-16 bg-white z-50">
-          <Link href="/" >DL News</Link>
+          <Link className="text-black" href="/" >DL News</Link>
         </nav>
         {children}
       </body>

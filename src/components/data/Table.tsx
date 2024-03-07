@@ -56,7 +56,7 @@ const Table = <T,>({ data, columns, sort, handleSort }: Props<T>) => {
                                 {
                                     !data.length ? (
                                         <tr>
-                                            <td colSpan={columns.length} className="text-center">
+                                            <td colSpan={columns.length} className="px-4 py-4 text-sm font-medium whitespace-nowrap text-white text-center">
                                                 No data available
                                             </td>
                                         </tr>
