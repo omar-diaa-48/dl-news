@@ -4,6 +4,7 @@ import { IStableCoin } from '@/utilities/interfaces'
 import React from 'react'
 import InfiniteMovingCards from '../data/InfiniteMovingCards'
 import StableCoinsTable from './StableCoinsTable'
+import { getTypeFromPegType } from '@/utilities/helpers'
 
 interface Props {
     data: Array<IStableCoin>
@@ -21,7 +22,7 @@ const StableCoinsList: React.FC<Props> = ({ data }) => {
                             key={item.id}
                         >
                             <span>
-                                {item.symbol}   {item.price > 0 && <b>{item.price} {item.pegType.replace('pegged', '')}</b>}
+                                {item.symbol}   {item.price > 0 && <b>{item.price} {getTypeFromPegType(item.pegType)}</b>}
                             </span>
                         </p>
                     )

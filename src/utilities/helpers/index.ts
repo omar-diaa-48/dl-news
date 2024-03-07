@@ -1,0 +1,1 @@
+export const getTypeFromPegType = (pegType: string): string => pegType.replace('pegged', '') 

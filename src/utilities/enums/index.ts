@@ -4,3 +4,9 @@ export enum PegMechanismEnum {
     CRYPTO_BACKED = 'crypto-backed',
     ALGORITHMIC = 'algorithmic',
 }
+
+export enum PegTypeEnum {
+    ALL = 'all',
+    USD = 'peggedUSD',
+    EUR = 'peggedEUR',
+}
