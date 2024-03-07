@@ -166,7 +166,10 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
                     title: 'Appears In ',
                     render: (_, row) => {
                         return (
-                            <span title={`${row.chains.join(', ')}`} className='cursor-pointer'>{row.chains.length} chains</span>
+                            <p className='flex flex-col cursor-pointer'>
+                                <span>{row.chains.length} chains</span>
+                                <span title={`${row.chains.join(', ')}`} >{row.chains.slice(0, 2).join(', ')} {row.chains.length > 2 ? '...' : ''}</span>
+                            </p>
                         )
                     }
                 },
