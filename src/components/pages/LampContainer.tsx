@@ -2,7 +2,7 @@ import { cn } from "@/utilities/helpers/cn";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
-import ArrowUpRight from "./icons/ArrowUpRight";
+import ArrowUpRight from "../icons/ArrowUpRight";
 
 interface Props extends PropsWithChildren {
     className?: string;

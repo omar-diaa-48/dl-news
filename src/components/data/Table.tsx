@@ -1,6 +1,6 @@
 import React from 'react'
-import ArrowUpShortWide from './icons/ArrowUpShortWide';
-import ArrowUpWideShort from './icons/ArrowUpWideShort';
+import ArrowUpShortWide from '../icons/ArrowUpShortWide';
+import ArrowUpWideShort from '../icons/ArrowUpWideShort';
 import { ISortCriteria } from '@/utilities/interfaces';
 
 interface ColumnProps<T> {

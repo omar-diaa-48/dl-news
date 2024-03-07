@@ -2,7 +2,7 @@
 
 import { IStableCoin } from '@/utilities/interfaces'
 import React from 'react'
-import InfiniteMovingCards from './InfiniteMovingCards'
+import InfiniteMovingCards from '../data/InfiniteMovingCards'
 import StableCoinsTable from './StableCoinsTable'
 
 interface Props {

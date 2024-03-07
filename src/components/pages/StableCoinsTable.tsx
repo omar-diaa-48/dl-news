@@ -1,9 +1,9 @@
 "use client"
 import { IPaginationCriteria, ISortCriteria, IStableCoin } from '@/utilities/interfaces'
 import React, { useEffect, useState } from 'react'
-import Table from './Table'
+import Table from '../data/Table'
 import { PegMechanismEnum } from '@/utilities/enums'
-import TablePaginator from './visualize/TablePaginator'
+import TablePaginator from '../data/TablePaginator'
 
 interface Props {
     data: Array<IStableCoin>
@@ -76,8 +76,6 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
 
     useEffect(() => {
         const timerId = setTimeout(() => {
-            console.log('updateTableData effect');
-
             updateTableData()
         }, 500);
 
