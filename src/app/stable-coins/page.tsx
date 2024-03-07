@@ -1,8 +1,6 @@
 "use server"
 
-import InfiniteMovingCards from "@/components/data/InfiniteMovingCards";
 import StableCoinsList from "@/components/pages/StableCoinsList";
-import StableCoinsTable from "@/components/pages/StableCoinsTable";
 import { IListStableCoinsResponse, IStableCoin } from "@/utilities/interfaces";
 
 async function getStableCoinsData(): Promise<IListStableCoinsResponse> {
