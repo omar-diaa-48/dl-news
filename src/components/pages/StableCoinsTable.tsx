@@ -21,7 +21,6 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
         let filteredList = [...data]
 
         if (pegMechanism !== PegMechanismEnum.ALL) {
-            console.log({ filteredList });
             filteredList = filteredList.filter((row) => row.pegMechanism === pegMechanism)
         }
 
