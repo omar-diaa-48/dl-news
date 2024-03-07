@@ -15,7 +15,7 @@ const TablePaginator: React.FC<Props> = ({ handlePagination, paginationCriteria,
     return (
         <div className="mt-6 sm:flex sm:items-center sm:justify-between">
             <div className="text-sm text-gray-500 dark:text-gray-400">
-                Page <span className="font-medium text-gray-700">{paginationCriteria.currentPage} of {Math.ceil(totalNumberOfRows / paginationCriteria.rowsPerPage)}</span>
+                Page <span className="font-medium text-gray-700">{paginationCriteria.currentPage} of {Math.ceil(totalNumberOfRows / paginationCriteria.rowsPerPage)}</span> - <span>{paginationCriteria.rowsPerPage} rows per Page</span>
             </div>
 
             <div className="flex items-center mt-4 gap-x-4 sm:mt-0">

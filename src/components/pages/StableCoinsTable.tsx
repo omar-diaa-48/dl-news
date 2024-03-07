@@ -163,8 +163,14 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
                     render: (_, row) => {
                         return (
                             <p className='flex flex-col'>
-                                <span>Currently {row.circulating.peggedUSD}</span>
-                                <span>Yesterday {row.circulatingPrevDay.peggedUSD}</span>
+                                {row.circulating.peggedUSD && row.circulatingPrevDay.peggedUSD ? (
+                                    <React.Fragment>
+                                        <span>Currently {row.circulating.peggedUSD}</span>
+                                        <span>Yesterday {row.circulatingPrevDay.peggedUSD}</span>
+                                    </React.Fragment>
+                                ) : (
+                                    <span>N/A</span>
+                                )}
                             </p>
                         )
                     }
