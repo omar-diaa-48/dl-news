@@ -131,7 +131,7 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
                     title: 'Appears In ',
                     render: (_, row) => {
                         return (
-                            <span>{row.chains.length} chains</span>
+                            <span title='View Chains' className='cursor-pointer'>{row.chains.length} chains</span>
                         )
                     }
                 },
@@ -143,7 +143,7 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
                             <span>{row.price} {row.pegType.replace('pegged', '')}</span>
                         )
                     }
-                },
+                }
             ]}
                 data={coinsInView}
                 sort={sortCriteria}
@@ -152,10 +152,10 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
 
             <TablePaginator
                 paginationCriteria={paginationCriteria}
-                handlePagination={(pc) => setPaginationCriteria(pc)}
                 totalNumberOfRows={totalFilteredNumberOfRows}
+                handlePagination={(pc) => setPaginationCriteria(pc)}
             />
-        </div>
+        </div >
     )
 }
 
