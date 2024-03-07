@@ -2,6 +2,7 @@ import { cn } from "@/utilities/helpers/cn";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { PropsWithChildren } from "react";
+import ArrowUpRight from "./icons/ArrowUpRight";
 
 interface Props extends PropsWithChildren {
     className?: string;
@@ -33,7 +34,10 @@ const LampContainer: React.FC<Props> = (props) => {
                 actions.length > 0 && (
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 100 }} transition={{ delay: 1 }} className="relative z-50 flex -translate-y-60 text-white">
                         {actions.map((action) => (
-                            <Link key={action.title} href={action.link}>{action.title}</Link>
+                            <Link key={action.title} href={action.link} className="flex items-center gap-2">
+                                {action.title}
+                                <ArrowUpRight />
+                            </Link>
                         ))}
                     </motion.div>
                 )
