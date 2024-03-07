@@ -16,7 +16,7 @@ const StableCoinsTable: React.FC<Props> = ({ data }) => {
     const [totalFilteredNumberOfRows, setTotalFilteredNumberOfRows] = useState<number>(0)
     const [searchPegMechanism, setSearchPegMechanism] = useState<PegMechanismEnum>(PegMechanismEnum.ALL)
     const [sortCriteria, setSortCriteria] = useState<ISortCriteria<IStableCoin>>({ key: 'price', direction: 'asc' })
-    const [paginationCriteria, setPaginationCriteria] = useState<IPaginationCriteria>({ currentPage: 1, rowsPerPage: 10 })
+    const [paginationCriteria, setPaginationCriteria] = useState<IPaginationCriteria>({ currentPage: 1, rowsPerPage: 6 })
 
     const getFilteredCoinsList = (pegMechanism: PegMechanismEnum, q?: string) => {
         let filteredList = [...data]
