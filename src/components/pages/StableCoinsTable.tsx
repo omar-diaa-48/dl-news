@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react'
 import Table from '../data/Table'
 import { PegMechanismEnum } from '@/utilities/enums'
 import TablePaginator from '../data/TablePaginator'
-import StableCoinModal from './StableCoinModal'
 
 interface Props {
     data: Array<IStableCoin>

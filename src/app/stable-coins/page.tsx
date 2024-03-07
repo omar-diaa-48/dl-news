@@ -5,7 +5,7 @@ import StableCoinsList from "@/components/pages/StableCoinsList";
 import StableCoinsTable from "@/components/pages/StableCoinsTable";
 import { IListStableCoinsResponse, IStableCoin } from "@/utilities/interfaces";
 
-async function getData(): Promise<IListStableCoinsResponse> {
+async function getStableCoinsData(): Promise<IListStableCoinsResponse> {
   const res = await fetch('https://stablecoins.llama.fi/stablecoins?includePrices=true')
 
   if (!res.ok) {
@@ -16,11 +16,11 @@ async function getData(): Promise<IListStableCoinsResponse> {
 }
 
 export default async function Home() {
-  const data = await getData()
+  const stableCoins = await getStableCoinsData()
 
   return (
     <main className="flex flex-col items-center">
-      <StableCoinsList data={data.peggedAssets} />
+      <StableCoinsList data={stableCoins.peggedAssets} />
     </main>
   );
 }
